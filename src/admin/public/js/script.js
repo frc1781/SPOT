@@ -226,16 +226,11 @@ class ScouterDisplay {
     this.scouter = scouter;
 
     this.scouterElement = document.createElement("button");
-
-    this.scouterElement.innerHTML = `
-        <div class="match-number" scouter=${this.scouter.state.scouterId}></div>
-        <div class="scouter-id"></div>
-        <div class="robot-number"></div>
-        <div class="scouter-status"></div>
-        `;
-    this.scouterElement.classList.add("scouter");
-
-    this.scouterElement.onclick = (e) => {
+  <html>
+    <div>
+      <script>
+        function reset() {
+          this.scouterElement.onclick = (e) => {
       let disconnectModal = new Modal("small", false).header(
         "Do you want to Disconnect " + this.scouter.state.scouterId + "?"
       );
@@ -265,7 +260,55 @@ class ScouterDisplay {
         new Popup("notice", `Disconnect Canceled`, 2000);
         disconnectModal.modalExit();
       });
-    };
+    }
+        }
+      </script>
+       <button onclick = "reset()" style ="background-color:rgb(10, 223, 194); color:rgb(4, 73, 4); border-radius:5px">Disconnect Scouter</button>
+      <p>
+        <div id ="res"> </div>
+      </p>
+    </div>
+ </html> 
+  
+    this.scouterElement.innerHTML = `
+        <div class="match-number" scouter=${this.scouter.state.scouterId}></div>
+        <div class="scouter-id"></div>
+        <div class="robot-number"></div>
+        <div class="scouter-status"></div>
+        `;
+    this.scouterElement.classList.add("scouter");
+
+    // this.scouterElement.onclick = (e) => {
+    //   let disconnectModal = new Modal("small", false).header(
+    //     "Do you want to Disconnect " + this.scouter.state.scouterId + "?"
+    //   );
+    //   disconnectModal.scale(0.75);
+    //   disconnectModal.action("Yes", () => {
+    //     fetch(
+    //       `api/disconnectScouter/${this.scouterElement.getAttribute(
+    //         "scouter"
+    //       )}`,
+    //       {
+    //         headers: {
+    //           Authorization: accessCode,
+    //         },
+    //       }
+    //     ).then((res) => res.json());
+
+    //     var scouterID = this.scouterElement.getAttribute("scouter");
+    //     var scouter = Object.values(scouters).find(
+    //       (s) => s.scouter.state.scouterId == scouterID
+    //     );
+
+    //     scouter.scouter.state.connected = false;
+    //     new Popup("success", `Scouter ${scouterID} Disconnected!`, 2000);
+    //     disconnectModal.modalExit();
+    //   });
+    //   disconnectModal.action("No", () => {
+    //     new Popup("notice", `Disconnect Canceled`, 2000);
+    //     disconnectModal.modalExit();
+    //   });
+    // };
 
     document.querySelector("#scouter-list").appendChild(this.scouterElement);
 
