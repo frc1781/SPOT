@@ -2,7 +2,7 @@ const express = require("express");
 let app = express();
 const server = app.listen(process.env.PORT || 1781, "0.0.0.0", () => {
   console.log(
-    chalk.cyan(`Server listening on port ${process.env.PORT || 8080}`)
+    chalk.cyan(`Server listening on port ${process.env.PORT || 1781}`)
   );
 });
 const chalk = require("chalk");
