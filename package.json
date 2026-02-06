@@ -10,8 +10,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HuskieRobotics/spot.git"
-  },
-  "author": "",
+  }, "engine": {
+    "node": "16.x"
+  }, "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/HuskieRobotics/spot/issues"
