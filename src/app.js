@@ -9,7 +9,7 @@ const chalk = require("chalk");
 const fs = require("fs");
 
 const axios = require("axios");
-axios.defaults.baseURL = `http://localhost:${process.env.PORT || 8080}`;
+axios.defaults.baseURL = `http://localhost:${process.env.PORT || 1781}`;
 
 app.set("view engine", "ejs");
 let bodyParser = require("body-parser");
