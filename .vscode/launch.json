@@ -13,7 +13,7 @@
       "type": "chrome",
       "request": "launch",
       "name": "SPOT Client",
-      "url": "http://localhost:1781",
+      "url": "${env:RENDER_EXTERNAL_URL || http://localhost:${env:PORT || 1781}}",
       "webRoot": "${workspaceFolder}/src/analysis/public",
       "outputCapture": "std"
     }
