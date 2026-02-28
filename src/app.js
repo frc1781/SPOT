@@ -9,7 +9,9 @@ const chalk = require("chalk");
 const fs = require("fs");
 
 const axios = require("axios");
-axios.defaults.baseURL = process.env.RENDER_EXTERNAL_URL || `http://localhost:${process.env.PORT || 1781}`;
+axios.defaults.baseURL =
+  process.env.RENDER_EXTERNAL_URL ||
+  `http://127.0.0.1:${process.env.PORT || 1781}`;
 
 app.set("view engine", "ejs");
 let bodyParser = require("body-parser");

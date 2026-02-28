@@ -5,6 +5,7 @@ const config = require("../../../config/config.json");
 const { TeamMatchPerformance, Event } = require("../../lib/db");
 let axios = require("axios");
 const DEMO = config.DEMO;
+axios.defaults.baseURL = "http://0.0.0.0:1781";
 
 router.use((req, res, next) => {
   if (!ScoutingSync.initialized) {
